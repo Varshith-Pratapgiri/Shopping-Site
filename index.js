@@ -40,10 +40,21 @@ async function fetchProducts() {
     renderJson(data);
 }
 
-fetchProducts();
-
 
 const container = document.querySelector(".products-container");
+
+const shopNowButton = document.querySelector(".shop-now");
+const scrollView = document.querySelector(".scroll-view");
+
+if (shopNowButton && scrollView) {
+    shopNowButton.addEventListener("click", () => {
+        scrollView.scrollIntoView({
+            behavior : 'smooth',
+            block: 'start'
+        })
+    } )
+}
+
 
 // Rendering data on to UI
 function renderJson(products) {
@@ -75,7 +86,13 @@ async function loadHeader() {
     searchInput.addEventListener("input", () => fetchSearchResults());
 }
 
-loadHeader();
+
+
+async function loadFooter() {
+    const response = await fetch("footer.html");
+    const data = await response.text();
+    document.getElementById("footer").innerHTML = data;
+}
 
 
 // filtering data as per search input 
@@ -139,7 +156,6 @@ function renderCartItems() {
     });
 }
 
-renderCartItems();
 
 function removeCartItem(productId) {
     const localCartItems = JSON.parse(localStorage.getItem("cartItems"));
@@ -188,7 +204,16 @@ function generateTotal() {
     finalValue.innerHTML = `Total: ${totalVal}`;
 }
 
-generateTotal();
 
 
+async function init() {
+    await loadHeader();
+    await loadFooter();
+    await fetchProducts();
 
+    renderJson(data);
+    renderCartItems();
+    generateTotal();
+}
+
+init();
