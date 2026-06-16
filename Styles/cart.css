@@ -1,0 +1,81 @@
+.cart-page {
+    padding-top: 70px;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.cart-page>h3 {
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-left: 90px;
+    align-self: flex-start;
+}
+
+.cart-container {
+    margin: 12px;
+    display: flex;
+    flex-direction: column;
+    padding: 8px 12px;
+    gap: 12px;
+}
+
+.invoice {
+    display: flex;
+    flex-direction: column;
+    padding: 12px 16px;
+    border: 1px solid var(--header);
+    justify-content: space-between;
+    background-color: var(--btn);
+    margin-top: 0;
+    align-items: center;
+}
+
+.item-bill {
+    display: flex;
+    gap: 10px;
+}
+
+.invoice-value {
+    font-weight: bold;
+    margin-left: auto;
+    font-size: 1.5rem;
+}
+
+.products-card {
+    display: flex;
+    padding: 12px 100px;
+    width: 90vw;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    background-color: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+}
+
+.products-card img {
+    width: 100%;
+    max-width: 100px;
+    height: 180px;
+    object-fit: contain;
+}
+
+.details-section {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 12px;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.price-section {
+    margin-left: auto;
+}
+
+.price-section strong {
+    display: flex;
+    font-size: 1.5rem;
+}

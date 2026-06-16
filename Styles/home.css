@@ -1,26 +1,4 @@
-
-:root {
-    --primary: rgb(255, 245, 248);
-    --header: rgb(214, 51, 108);
-    --font: #ffff;
-    --font-drk: black;
-    --btn: rgb(255, 182, 193);
-}
-
-* {
-    padding: 0;
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 14px;
-    box-sizing: border-box;
-}
-
-body {
-    background-color: var(--primary);
-}
-
-.title-page,
-.cart-page {
+.title-page {
     padding: 14px 17px;
     gap: 20px;
     display: flex;
@@ -34,20 +12,6 @@ body {
     display: flex;
     align-items: center;
     color: aqua;
-}
-
-button {
-    padding: 6px 9px;
-    border: 1px solid black;
-    border-radius: 6px;
-    color: var(--font-drk);
-    background-color: var(--btn);
-    transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-button:hover {
-    transform: translateY(-0.5px);
-    background-color: var(--hover);
 }
 
 .nudge-1 {
@@ -127,8 +91,7 @@ button:hover {
 
 }
 
-.products-container,
-.cart-container {
+.products-container {
     margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
@@ -167,54 +130,5 @@ button:hover {
     background: rgba(255, 255, 255, 0.16);
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
-
-header {
-    padding: 14px 17px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: var(--header);
-    z-index: 1000;
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-nav a {
-    padding: 0 25px;
-    text-decoration: none;
-    color: inherit;
-}
-
-.invoice {
-    display: flex;
-    flex-direction: column;
-    padding: 12px 16px;
-    border: 1px solid var(--header);
-    justify-content: space-between;
-    background-color: var(--btn);
-    margin-top: 0;
-    align-items: center;
-}
-
-.item-bill {
-    display: flex;
-    gap: 10px;
-}
-
-.invoice-value strong {
-    justify-content: center;
-}
-
-
-
-
 
 
