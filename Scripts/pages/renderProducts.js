@@ -5,26 +5,33 @@ import { addToCart } from "../services/cartService.js";
 export const container = document.querySelector(".products-container");
 
 
+
 export function renderJson(products, category) {
     if (!container) return;
     container.innerHTML = "";
     
     if (!category) {
-        products.forEach(product => {
+        console.log("category not found");
+        container.classList.remove("active");
+        return;
+    } 
+    else if (category === "any") {
+        products.forEach((product) => {
             container.innerHTML += productDescription(product);
         });
-    } else {
-        products.filter(p => p.category === category).forEach((product) => {
-            container.innerHTML += productDescription(product);
-        })
-    }
+        return;
+    }  
+    container.classList.add("active");
+    const displayCategory = category[0].toUpperCase() + category.slice(1);
+    container.innerHTML += `<h3>${displayCategory}</h3>`
+    products.filter(p => p.category === category).forEach((product) => {
+        container.innerHTML += productDescription(product);
+    })
 
     const addToCartButtons = document.querySelectorAll(".add-to-cart");
     addToCartButtons.forEach((button) => {
         button.addEventListener("click", () => {
-    
             const prod = Number(button.dataset.id);
-            
             addToCart(prod);
         })
     })
@@ -55,9 +62,10 @@ export function renderCategories(products) {
     ]
     
     categoriesSet.forEach((category) => {
+        const displayCategory = category[0].toUpperCase() + category.slice(1);
         categories.innerHTML += `
         <button data-category="${category}">
-           ${category}
+           ${displayCategory}
         </button>
         `
     })

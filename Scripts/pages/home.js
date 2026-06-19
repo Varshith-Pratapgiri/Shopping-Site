@@ -23,7 +23,6 @@ async function init() {
     await loadFooter();
     await fetchProducts();
 
-    renderJson(data);
     renderCategories(data);
 }
 

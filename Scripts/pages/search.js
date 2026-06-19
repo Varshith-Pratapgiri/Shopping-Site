@@ -6,7 +6,6 @@ export function fetchSearchResults() {
     if (!searchInput) return;
 
     if (searchInput.value.trim() === "") {
-        renderJson(data);
         return;
     }
     const filteredData = data.filter((product) =>
@@ -14,5 +13,5 @@ export function fetchSearchResults() {
             .toLowerCase()
             .includes(searchInput.value.toLowerCase()));
 
-    renderJson(filteredData);
+    renderJson(filteredData, "any");
 }

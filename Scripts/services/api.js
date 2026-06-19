@@ -16,5 +16,5 @@ export async function fetchProducts() {
     catch (error) {
         console.log(error.message);
     } 
-    renderJson(data);
+    
 }

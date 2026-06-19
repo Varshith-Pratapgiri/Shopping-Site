@@ -48,6 +48,10 @@
 }
 
 .shop-now {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     position: absolute;
     top: 400px;
     right: 750px;
@@ -57,18 +61,15 @@
     background-color: transparent;
     color: aliceblue;
     cursor: pointer;
-    animation: bounceIn 900ms ease-out;
+    animation: bounceIn 1200ms ease-out;
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease;
 }
 
 .shop-now:hover {
-    transform:
-        scale(1.08)
-        rotate(4deg);
-    box-shadow:
-        0 10px 30px rgba(0,0,0,0.3);
+    transform: scale(1.08);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
 @keyframes bounceIn {
@@ -92,22 +93,58 @@
 }
 
 .products-container {
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 50px;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+    height: 400px;
+
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+
     padding: 8px 12px;
     gap: 12px;
+}
+
+.products-container.active {
+    margin-top: 10px;
+    margin-bottom: 50px;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+    height: 400px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    padding: 8px 12px;
+    gap: 12px;
+    background-color: #ffff;
+}
+
+.products-container h3 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
 }
 
 .products-card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
     border-radius: 5px;
     padding: 6px 9px;
     width: 220px;
-    max-height: 320px;
+    min-height: 320px;
     background-color: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(10px);
     box-shadow: 0 4px 20px rgba(0,0,0,0.12);
@@ -131,23 +168,49 @@
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
+
+
+.categories {
+    padding: 10px 14px;
+    width: 100vw;
+    height: 200px;
+    margin-top: 25px;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+    background-color: #ffff;
+}
+
 .categories button {
-        padding: 6px 9px;
-        border: 1px solid black;
-        cursor: pointer;
-        border-radius: 6px;
-        color: var(--font-drk);
-        background-color: var(--btn);
-        transition: transform 0.2s ease, background-color 0.2s ease;
+    width: 100px;
+    height: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px 16px;
+    border: 1px solid black;
+    cursor: pointer;
+    border-radius: 5px;
+    color: var(--font-drk);
+    background-color: var(--primary);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
 }
 
 .categories button.active {
-    padding: 6px 9px;
+    padding: 12px 16px;
     border: 1px solid black;
     cursor: pointer;
     border-radius: 6px;
-    color: var(--font-drk);
-    background-color: var(--header);
+    color: black;
+    background-color: var(--btn);
     transition: transform 0.2s ease, background-color 0.2s ease;  
 }
 
