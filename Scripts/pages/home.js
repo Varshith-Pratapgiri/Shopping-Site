@@ -1,10 +1,10 @@
 import { loadHeader } from "../components/header.js";
 import { loadFooter } from "../components/footer.js";
-import { renderJson } from "./renderProducts.js";
+import { renderJson, renderCategories } from "./renderProducts.js";
 import { data, fetchProducts } from "../services/api.js";
 
 
-export const container = document.querySelector(".products-container");
+
 
 export const shopNowButton = document.querySelector(".shop-now");
 export const scrollView = document.querySelector(".scroll-view");
@@ -24,6 +24,7 @@ async function init() {
     await fetchProducts();
 
     renderJson(data);
+    renderCategories(data);
 }
 
 init();

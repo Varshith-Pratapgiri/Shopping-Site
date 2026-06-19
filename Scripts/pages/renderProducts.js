@@ -1,13 +1,23 @@
-import { container } from "./home.js";
 import { addToCart } from "../services/cartService.js";
 
 // Rendering data on to UI
-export function renderJson(products) {
+
+export const container = document.querySelector(".products-container");
+
+
+export function renderJson(products, category) {
     if (!container) return;
     container.innerHTML = "";
-    products.forEach(product => {
-        container.innerHTML += productDescription(product);
-    });
+    
+    if (!category) {
+        products.forEach(product => {
+            container.innerHTML += productDescription(product);
+        });
+    } else {
+        products.filter(p => p.category === category).forEach((product) => {
+            container.innerHTML += productDescription(product);
+        })
+    }
 
     const addToCartButtons = document.querySelectorAll(".add-to-cart");
     addToCartButtons.forEach((button) => {
@@ -30,4 +40,33 @@ export function productDescription(product) {
             <button class="add-to-cart" data-id="${product.id}">Add to cart</button>
         </div>
     `;
+}
+
+export function renderCategories(products) {
+    const categories = document.querySelector(".categories");
+    if (!categories) {
+        console.log("categories not found");
+        return;
+    }
+    const categoriesSet = [
+        ...new Set(
+            products.map((product) => product.category)
+        )
+    ]
+    
+    categoriesSet.forEach((category) => {
+        categories.innerHTML += `
+        <button data-category="${category}">
+           ${category}
+        </button>
+        `
+    })
+
+    categories.addEventListener('click', (e) => {
+        const category = e.target.dataset.category;
+        const categoriesBtn = document.querySelectorAll(".categories button");
+        categoriesBtn.forEach((cat) => cat.classList.remove("active"));
+        e.target.classList.add("active");
+        renderJson(products, category);
+    });
 }

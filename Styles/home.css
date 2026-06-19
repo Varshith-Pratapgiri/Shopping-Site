@@ -131,4 +131,24 @@
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
+.categories button {
+        padding: 6px 9px;
+        border: 1px solid black;
+        cursor: pointer;
+        border-radius: 6px;
+        color: var(--font-drk);
+        background-color: var(--btn);
+        transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.categories button.active {
+    padding: 6px 9px;
+    border: 1px solid black;
+    cursor: pointer;
+    border-radius: 6px;
+    color: var(--font-drk);
+    background-color: var(--header);
+    transition: transform 0.2s ease, background-color 0.2s ease;  
+}
+
 
