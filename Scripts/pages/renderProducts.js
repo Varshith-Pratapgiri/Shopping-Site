@@ -5,7 +5,6 @@ import { addToCart } from "../services/cartService.js";
 export const container = document.querySelector(".products-container");
 
 
-
 export function renderJson(products, category) {
     if (!container) return;
     container.innerHTML = "";
