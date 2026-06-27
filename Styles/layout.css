@@ -1,5 +1,6 @@
 header {
-    padding: 8px 12px;
+    height: 56px;
+    padding: 0 12px;
     display: flex;
     gap: 20px;
     justify-content: center;
@@ -57,21 +58,103 @@ nav a {
     flex-shrink: 0;
 }
 
+
 .side-bar {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 10px;
-    height: 100vh;
     width: 200px;
-    overflow: display;
+    overflow-y: auto;
     border-right: 1px solid black;
+    background-color: var(--btn-hover);
     position: fixed;
-    top: 70px;
+    top: 56px;
+    height: calc(100vh - 56px);
     left: -320px;
     bottom: 0;
     list-style: none;
+
+    transition: left 0.3s ease;
+    z-index: 1000;
+}
+
+.side-bar a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 12px;
+    list-style: none;
+
+    padding: 10px 14px;
+    margin: 12px;
+    border: 1px solid black;
+    border-radius: 2px;
+    text-decoration: none;
+
+    color: inherit;
+
+    transition: transform 0.5s ease, background-color 0.5s ease, color 0.2s ease;
+}
+
+.side-bar a:hover {
+    transform: translateY(-1px);
+    background-color: var(--header);
+    color: #ffff;
 }
 
 .side-bar.open {
     left: 0;
+    backdrop-filter: 10%;
 }
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.30);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    opacity: 0;
+    pointer-events: none;
+
+    transition: opacity 0.3s;
+    z-index: 999;
+}
+
+.overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#close-button {
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 0;
+    margin-left: auto;
+
+    border: 1px solid black;
+    border-radius: 2px;
+
+    animation: bounce 1s ease;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-8px);
+    }
+
+    70% {
+        transform: translateY(2px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+

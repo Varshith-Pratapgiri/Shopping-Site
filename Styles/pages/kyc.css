@@ -1,0 +1,9 @@
+.title-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 56px;
+    padding: 14px 17px;
+    gap: 20px;
+    min-height: 100vh;
+}

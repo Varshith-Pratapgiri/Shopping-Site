@@ -1,9 +1,10 @@
 :root {
-    --primary: rgb(255, 245, 248);
-    --header: rgb(214, 51, 108);
+    --primary: linear-gradient( 120deg, #fff5f8, #f7f3ff, #edf9ff );
+    --header: #FF97D0;
     --font: #ffff;
     --font-drk: black;
-    --btn: rgb(255, 182, 193);
+    --btn: #C13383;
+    --btn-hover: #FFDBFD;
 }
 
 * {
@@ -15,7 +16,7 @@
 }
 
 body {
-    background-color: var(--primary);
+    background: var(--primary);
 }
 
 button {
@@ -23,12 +24,13 @@ button {
     border: 1px solid black;
     border-radius: 6px;
     cursor: pointer;
-    color: var(--font-drk);
+    color: var(--font);
     background-color: var(--btn);
     transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 button:hover {
     transform: translateY(-0.5px);
-    background-color: var(--hover);
+    background-color: var(--btn-hover);
+    color: var(--font-drk);
 }
