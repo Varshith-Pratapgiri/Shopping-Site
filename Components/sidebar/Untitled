@@ -1,3 +1,0 @@
-export function loadSideBar() {
-    const profileButton = document.getElementById("profile-button");
-}
